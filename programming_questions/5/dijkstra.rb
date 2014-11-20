@@ -15,7 +15,7 @@ def djkstra(graph, source_index)
   graph.each do |v|
     v_index = v.first
     unless v_index == source_index
-      dist[v_index] = Float::INFINITY
+      dist[v_index] = 1000000
       previous[v_index] = nil
     end
     q.push v_index
@@ -42,4 +42,12 @@ def djkstra(graph, source_index)
   [dist, previous]
 end
 
-pp djkstra graph, 1
+v_needed = [7,37,59,82,99,115,133,165,188,197]
+
+dist, previous =  djkstra graph, 1
+
+result = dist.each_with_index.select{|d, i| v_needed.index(i)}
+
+pp dist
+pp v_needed
+puts result
