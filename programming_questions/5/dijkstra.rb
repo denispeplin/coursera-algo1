@@ -30,7 +30,7 @@ def djkstra(graph, source_index)
 
     graph[u_index].each do |v|
       v_index, u_v_dist = v.first, v.last
-      if q[v_index]
+      if q.index v_index
         alt = dist[u_index] + u_v_dist
         if alt < dist[v_index]
           dist[v_index] = alt
