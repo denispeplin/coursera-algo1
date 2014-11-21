@@ -46,7 +46,7 @@ v_needed = [7,37,59,82,99,115,133,165,188,197]
 
 dist, previous =  djkstra graph, 1
 
-result = dist.each_with_index.select{|d, i| v_needed.index(i)}
+result = dist.each_with_index.select{|d, i| v_needed.index(i)}.map(&:first).join(',')
 
 pp dist
 pp v_needed
